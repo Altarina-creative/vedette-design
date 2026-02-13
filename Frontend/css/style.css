@@ -1,0 +1,1149 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+  background: #1c1f26;
+  color: #e5e7eb;
+}
+
+/* ======================================================
+   NAVBAR (COMMON FOR ALL PAGES)
+   ====================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  background: #15181e;
+  border-bottom: 1px solid #2a2f3a;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.logo img {
+  width: 38px;
+  height: 38px;
+}
+
+.logo span {
+  color: #c89b3c;
+}
+
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #c89b3c;
+}
+
+/* ===== NAV LINKS (Desktop + Tablet) ===== */
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #c89b3c;
+}
+
+/* ===== HAMBURGER (Hidden by default) ===== */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #c89b3c;
+}
+
+/* ================= MOBILE ONLY ================= */
+@media (max-width: 768px) {
+
+  /* Hide full nav */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background: #15181e;
+    flex-direction: column;
+    width: 220px;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    z-index: 1000;
+  }
+
+  .nav-links a {
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(200,155,60,0.1);
+  }
+
+  /* Show menu when clicked */
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* Show hamburger */
+  .hamburger {
+    display: block;
+  }
+}
+/* ======================================================
+   HERO SECTION (FINAL FIXED RESPONSIVE)
+   ====================================================== */
+
+.hero-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  position: relative;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.85) 0%,
+      rgba(0,0,0,0.75) 35%,
+      rgba(0,0,0,0.4) 65%,
+      rgba(0,0,0,0.2) 100%
+    ),
+    url("../images/front.png");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+.hero-content {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.25;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.hero h1 span {
+  color: #ffb703;
+}
+
+.hero button {
+  margin-top: 30px;
+  padding: 14px 36px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ffb703, #ff7a00);
+  color: #111;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+
+  .hero-bg {
+    padding: 0 40px;
+    background-position: right center;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}
+
+/* ======================================================
+   HERO MOBILE EXACT MATCH
+   ====================================================== */
+
+@media (max-width:600px){
+
+  .hero-bg{
+    padding:0;
+    min-height:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    background:none;
+  }
+
+  /* Image */
+  .hero-bg::before{
+    content:"";
+    display:block;
+    width:100%;
+    height:56vh;
+    background:url("../images/mobilfront.png") center/cover no-repeat;
+  }
+
+  /* Text area */
+  .hero-content{
+    position:static;
+    transform:none;
+    text-align:center;
+    padding:34px 24px 42px;
+    background:#efefef;   /* lighter grey like reference */
+    color:#333;
+  }
+
+  .hero h1{
+    font-size:30px;
+    line-height:1.4;
+    color:#3a3a3a;
+    margin:0;
+  }
+
+  .hero h1 span{
+    color:#d89b00;
+  }
+
+  .hero button{
+    margin-top:22px;
+    padding:14px 32px;
+    border-radius:32px;
+    font-size:15px;
+    background:linear-gradient(135deg,#f5b041,#f39c12);
+    color:#111;
+  }
+}
+
+/* small phones */
+@media (max-width:480px){
+  .hero-bg::before{
+    height:52vh;
+  }
+
+  .hero h1{
+    font-size:26px;
+  }
+}
+
+/* ===== OUR WORK ===== */
+.work-section {
+  max-width: 1320px;
+  padding: 70px 24px 50px;   /* SAME */
+  text-align: center;
+  margin: auto;
+}
+
+.work-section h2 {
+  font-size: 40px;           /* SAME */
+  margin-bottom: 8px;
+}
+
+.work-subtitle {
+  color: #c89b3c;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+/* ===== GRID ===== */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* SAME */
+  gap: 32px;                              /* SAME */
+}
+
+/* ===== ITEM CARD ===== */
+.work-item {
+  background: #0e1116;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;  /* SAME */
+  box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;          /* SAME */
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.work-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 55px rgba(0,0,0,0.75);
+}
+
+/* ===== IMAGE + VIDEO ===== */
+.work-item img,
+.work-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* SAME */
+  border-radius: 14px;
+  background: #000;
+}
+
+/* ===== RESPONSIVE FIX ONLY ===== */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .work-grid {
+    gap: 26px;  /* same as before */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;   /* Only change */
+  }
+
+  .work-item {
+    aspect-ratio: 16 / 9;   /* SAME ratio, no size change */
+    padding: 8px;           /* SAME padding */
+  }
+}
+
+
+
+/* ======================================================
+   CONTACT PAGE
+   ====================================================== */
+.contact-wrapper {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.contact-box {
+  background: #15181e;
+  width: 100%;
+  max-width: 520px;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.contact-box h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  font-size: 14px;
+  color: #b6bcc8;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* ===== FORM ===== */
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #2a2f3a;
+  background: #1c1f26;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.contact-box textarea {
+  min-height: 110px;
+  resize: none;
+}
+
+.contact-box input::placeholder,
+.contact-box textarea::placeholder {
+  color: #9ca3af;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  outline: none;
+  border-color: #c89b3c;
+}
+
+/* ===== CONTACT BUTTON ===== */
+.contact-box button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #c89b3c, #a97c1f);
+  border: none;
+  border-radius: 30px;
+  color: #1c1f26;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-box button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ======================================================
+   CONTACT RESPONSIVE FIX
+   ====================================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+  .contact-wrapper {
+    padding: 40px 20px;
+    min-height: auto;
+  }
+
+  .contact-box {
+    max-width: 600px;
+    padding: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .contact-wrapper {
+    padding: 40px 15px;
+    align-items: flex-start;   /* top se start karega */
+  }
+
+  .contact-box {
+    max-width: 100%;
+    padding: 25px;
+  }
+
+  .contact-box h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .contact-box p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .contact-box input,
+  .contact-box textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .contact-box button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+
+  .contact-box {
+    padding: 20px;
+  }
+
+  .contact-box h2 {
+    font-size: 20px;
+  }
+}
+
+
+/* ======================================================
+   FOOTER
+   ====================================================== */
+.footer {
+  background: #0f1218;
+  padding: 50px 30px 20px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: start;
+}
+
+.footer-brand img {
+  width: 45px;
+  margin-bottom: 10px;
+}
+
+.footer-brand h3 {
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.footer-contact h4,
+.footer-social h4 {
+  margin-bottom: 12px;
+  color: #c89b3c;
+}
+
+.footer-contact a {
+  display: block;
+  text-decoration: none;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-contact a:hover {
+  color: #c89b3c;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  color: #b6bcc8;
+  margin-top: 10px;
+}
+
+/* ======================================================
+   FOOTER
+====================================================== */
+
+.footer {
+  background: #0f1218;
+  padding: 50px 30px 20px;
+  margin-top: 80px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  align-items: flex-start;
+}
+
+/* ===== BRAND ===== */
+
+.footer-brand img {
+  width: 45px;
+  margin-bottom: 10px;
+}
+
+.footer-brand h3 {
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* ===== CONTACT ===== */
+
+.footer-contact h4,
+.footer-social h4 {
+  margin-bottom: 12px;
+  color: #c89b3c;
+}
+
+.footer-contact a {
+  display: block;
+  text-decoration: none;
+  color: #e5e7eb;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-contact a:hover {
+  color: #c89b3c;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  color: #b6bcc8;
+  margin-top: 10px;
+}
+
+/* ===== SOCIAL ICONS ===== */
+
+.footer-social {
+  text-align: left;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: #1c1f26;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.footer-social a:hover {
+  transform: translateY(-3px);
+}
+
+.footer-social img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.footer-social img:hover {
+  transform: scale(1.15);
+}
+
+/* ======================================================
+   TABLET RESPONSIVE (768px–1024px)
+====================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .footer-social {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+
+  .footer-social a {
+    margin: 0 8px;
+  }
+}
+
+/* ======================================================
+   MOBILE RESPONSIVE (Below 767px)
+====================================================== */
+
+@media (max-width: 767px) {
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-social {
+    text-align: center;
+  }
+
+  .footer-social-icons {
+    justify-content: center;
+  }
+
+  .footer-social a {
+    margin: 0 8px;
+  }
+}
+
+/* ===== FOOTER BOTTOM ===== */
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #9ca3af;
+  border-top: 1px solid #2a2f3a;
+  padding-top: 15px;
+}
+
+/* ===============================
+   SERVICES PAGE LAYOUT FIX
+================================ */
+
+/* COMMON SECTION SPACING */
+.services-section,
+.pdf-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+/* HEADINGS */
+.services-section h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 25px;
+}
+
+.services-section p {
+  max-width: 900px;
+  margin: auto;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+/* Highlight text (Website line) */
+.highlight-text {
+  color: #c89b3c;
+  font-weight: 500;
+}
+
+/* SECTION TITLE (What We Do, What You Get, Process) */
+.section-title {
+  text-align: center;
+  margin: 70px 0 35px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  margin-bottom: 6px;
+}
+
+.section-title span {
+  font-size: 14px;
+  color: #c89b3c;
+  letter-spacing: 1px;
+}
+
+/* ======================================================
+   SERVICES GRID – FINAL RESPONSIVE
+====================================================== */
+
+/* DESKTOP – 3 PER ROW */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 40px auto 0;
+}
+
+/* SERVICE CARD */
+.service-card {
+  background: #15181e;
+  padding: 32px 20px;
+  border-radius: 18px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.5);
+  transition: 0.35s ease;
+}
+
+.service-card h3 {
+  font-size: 16px;
+  color: #e5e7eb;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #c89b3c;
+}
+
+/* ======================================================
+   TABLET (1024px & below) – 2 PER ROW
+====================================================== */
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Last card center */
+  .services-grid .service-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin: auto;
+  }
+}
+
+/* ======================================================
+   MOBILE (600px & below) – 1 PER ROW
+====================================================== */
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid .service-card:last-child {
+    max-width: 100%;
+  }
+}
+
+/* ===============================
+   WHAT YOU GET
+================================ */
+.features-list {
+  max-width: 700px;
+  margin: 35px auto 0;
+  list-style: none;
+  padding: 0;
+}
+
+.features-list li {
+  padding: 10px 0;
+  font-size: 15px;
+  color: #e5e7eb;
+}
+
+.features-list li::before {
+  content: "✔";
+  color: #c89b3c;
+  margin-right: 10px;
+}
+/* ======================================================
+   PROCESS GRID – FULL RESPONSIVE FIX
+====================================================== */
+
+/* DESKTOP (Large screens) */
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* CARD DESIGN */
+.process-card {
+  background: #15181e;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.process-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.process-card h4 {
+  margin-bottom: 10px;
+  color: #c89b3c;
+  font-size: 16px;
+}
+
+.process-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+
+/* ======================================================
+   TABLET (1024px and below)
+   2 Cards per Row
+====================================================== */
+@media (max-width: 1024px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ======================================================
+   SMALL TABLET (768px and below)
+   Still 2 per row (better layout)
+====================================================== */
+@media (max-width: 768px) {
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+
+/* ======================================================
+   MOBILE (600px and below)
+   1 per row
+====================================================== */
+@media (max-width: 600px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===============================
+   PDF SECTION (LESS GAP FIX)
+================================ */
+.pdf-section {
+  padding: 40px 20px 60px;
+  text-align: center;
+}
+
+.pdf-section h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.pdf-section p {
+  color: #b6bcc8;
+  margin-bottom: 25px;
+}
+
+/* PDF BUTTONS */
+.pdf-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: #c89b3c;
+  color: #1c1f26;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.btn-outline {
+  border: 1px solid #c89b3c;
+  color: #c89b3c;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+}
+
+.btn-primary:hover,
+.btn-outline:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .services-section h1 {
+    font-size: 34px;
+  }
+
+  .section-title h2 {
+    font-size: 26px;
+  }
+}
+
+
+/* ======================================================
+   RESPONSIVE (ALL PAGES)
+   ====================================================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 25px;
+  }
+
+  nav a {
+    margin-left: 15px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .contact-box {
+    padding: 25px;
+  }
+}
+
+/* ======================================================
+   ABOUT PAGE – CLEAN FINAL VERSION
+====================================================== */
+
+/* ===== SECTION SPACING ===== */
+
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+/* Remove extra gap between sections */
+.about-section + .about-section {
+  padding-top: 0;
+}
+
+/* ===== MAIN HEADING ===== */
+
+.about-heading {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+/* ===== PARAGRAPH TEXT ===== */
+
+.about-text {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+/* ================= OVERVIEW MOBILE TEXT FIX ================= */
+@media (max-width:768px){
+
+  .about-text.left{
+    text-align:center;
+    padding:0 20px;
+  }
+
+  .about-text{
+    font-size:15px;
+    line-height:1.8;
+
+    max-width:100%;
+    overflow-wrap:break-word;
+    word-break:normal;
+  }
+}
+
+/* ======================================================
+   PROFILE LAYOUT – DESKTOP
+====================================================== */
+
+.profile-wrapper {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto 0;
+  align-items: center;
+}
+
+.profile-image img {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.6);
+}
+
+.profile-content {
+  text-align: left;
+}
+
+.profile-content p {
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: #cbd5e1;
+}
+
+/* ======================================================
+   TABLET (≤1024px)
+====================================================== */
+
+@media (max-width: 1024px) {
+
+  .about-heading {
+    font-size: 34px;
+  }
+
+  .profile-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    text-align: center;
+  }
+
+  .profile-image img {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .profile-content {
+    text-align: center;
+  }
+
+  .profile-content p {
+    font-size: 15px;
+  }
+}
+
+/* ======================================================
+   MOBILE (≤768px)
+====================================================== */
+
+@media (max-width: 768px) {
+
+  .about-section {
+    padding: 40px 18px;
+  }
+
+  .about-heading {
+    font-size: 28px;
+  }
+
+  .about-text {
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+
+  .profile-wrapper {
+    gap: 20px;
+  }
+
+  .profile-image img {
+    max-width: 200px;
+  }
+
+  .profile-content p {
+    font-size: 14.5px;
+  }
+}
+
+/* ======================================================
+   SECTION TITLE GAP CONTROL
+====================================================== */
+
+.section-title {
+  margin: 35px 0 20px;
+}
+
+.section-title h2 {
+  margin-bottom: 6px;
+}
